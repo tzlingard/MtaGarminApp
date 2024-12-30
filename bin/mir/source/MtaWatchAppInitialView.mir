@@ -1,0 +1,63 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 1; ]
+import Toybox.Graphics;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 2; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 3; ]
+using Toybox.System;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 4; ]
+using Toybox.Communications;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 6; ]
+class MtaWatchAppInitialView extends WatchUi.View{
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 8; ]
+    function initialize() as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_8_26_10_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc" 9 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_8_26_10_4_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 13; ]
+    function onLayout(dc as Dc) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_13_40_15_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc" 14 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        %tmp.4 = getv ? :Rez;
+        %tmp.5 = getv %tmp.4 :Layouts;
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.8 = lgetv %dc;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        invoke %tmp.1 %tmp.2(%tmp.9);
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_13_40_15_4_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 17; ]
+    function onShow() as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_17_30_20_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc" 18 8 ]
+        [ "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_17_30_20_4_start" "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_17_30_20_4_stop" ]
+        %view.1 = local;
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :findDrawableById;
+        %tmp.4 = "TestDisplay";
+        %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
+        %tmp.6 = as %tmp.5 Text;
+        lputv %view.1 %tmp.6;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc" 19 8 ]
+        %tmp.7 = lgetv %view.1;
+        %tmp.8 = getv function %tmp.7 :setText;
+        %tmp.9 = "Click here to view the menu";
+        invoke %tmp.7 %tmp.8(%tmp.9);
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppInitialView_mc_17_30_20_4_stop:
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppInitialView.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,42 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 1; ]
+module BufMonkey {
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 1; ]
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 5; ]
+    class ProtoHeader{
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 5; ]
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 5; ]
+        static
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 9; @position = 13; ]
+        public
+        var wireType;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 14; @position = 13; ]
+        public
+        var fieldNum;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 19; @position = 13; ]
+        public
+        var fieldType;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 21; ]
+        function initialize(wireType, fieldNum, fieldType) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoHeader_mc_21_53_25_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc" 22 3 ]
+            %tmp.2 = lgetv %wireType;
+            putv self :wireType %tmp.2;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc" 23 3 ]
+            %tmp.4 = lgetv %fieldNum;
+            putv self :fieldNum %tmp.4;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc" 24 3 ]
+            %tmp.6 = lgetv %fieldType;
+            putv self :fieldType %tmp.6;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoHeader_mc_21_53_25_2_stop:
+        }
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoHeader.mc"; @line = 1; ]
+<init> {
+}

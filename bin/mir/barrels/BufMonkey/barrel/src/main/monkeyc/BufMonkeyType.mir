@@ -1,0 +1,72 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 6; ]
+module BufMonkey {
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 10; @position = 10; ]
+    const MSB = 128;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 15; @position = 10; ]
+    const MAX_BYTE_VALUE = 255;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 20; @position = 10; ]
+    const LAST_THREE = 7;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 25; @position = 10; ]
+    const INFINITY = 0x7FF0000000000000l;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 30; ]
+    class BufMonkeyType{
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 30; ]
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 30; ]
+        static
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 34; @position = 20; ]
+        protected
+        var decoder;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 39; @position = 20; ]
+        protected
+        var encoder;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 41; ]
+        function initialize(dict) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_41_32_44_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc" 42 7 ]
+            %tmp.4 = getv ? :ProtoDecoder;
+            %tmp.6 = lgetv %dict;
+            %tmp.1 = newc %tmp.4 (%tmp.6);
+            putv self :decoder %tmp.1;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc" 43 7 ]
+            %tmp.10 = getv ? :ProtoEncoder;
+            %tmp.12 = lgetv %dict;
+            %tmp.7 = newc %tmp.10 (%tmp.12);
+            putv self :encoder %tmp.7;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_41_32_44_6_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 50; ]
+        function setValue(position, value) {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 57; ]
+        function encode() {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_57_24_59_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc" 58 7 ]
+            %tmp.2 = getv ? :encoder;
+            %tmp.3 = getv function %tmp.2 :encode;
+            %tmp.5 = self;
+            invoke %tmp.2 %tmp.3(%tmp.5);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_57_24_59_6_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 64; ]
+        function decode(bytes) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_64_29_66_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc" 65 7 ]
+            %tmp.2 = getv ? :decoder;
+            %tmp.3 = getv function %tmp.2 :decode;
+            %tmp.5 = lgetv %bytes;
+            %tmp.7 = self;
+            invoke %tmp.2 %tmp.3(%tmp.5, %tmp.7);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_BufMonkeyType_mc_64_29_66_6_stop:
+        }
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\BufMonkeyType.mc"; @line = 6; ]
+<init> {
+}

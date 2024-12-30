@@ -33,11 +33,11 @@ C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppApp_mc_7_26_9_4_stop:
 C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppApp_mc_20_68_22_4_start:
 [ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppApp.mc" 21 8 ]
         %tmp.1 = newa 2;
-        %tmp.5 = getv ? :MtaWatchAppView;
+        %tmp.5 = getv ? :MtaWatchAppInitialView;
         %tmp.2 = newc %tmp.5 ();
         %tmp.6 = dup %tmp.1;
         %tmp.7 = aputv %tmp.6 0 %tmp.2;
-        %tmp.11 = getv ? :MtaWatchAppDelegate;
+        %tmp.11 = getv ? :MtaWatchAppInitialDelegate;
         %tmp.8 = newc %tmp.11 ();
         %tmp.12 = dup %tmp.7;
         %tmp.13 = aputv %tmp.12 1 %tmp.8;

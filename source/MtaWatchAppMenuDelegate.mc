@@ -8,11 +8,13 @@ class MtaWatchAppMenuDelegate extends WatchUi.MenuInputDelegate {
         MenuInputDelegate.initialize();
     }
 
-    function onMenuItem(item as Symbol) as Void {
-        if (item == :item_1) {
+    function onMenuItem(item as Symbol) {
+        if (item != :exit) {
             System.println("item 1");
-        } else if (item == :item_2) {
-            System.println("item 2");
+            WatchUi.pushView(new MtaWatchAppTrainView(item), new MtaWatchAppMenuDelegate(), WatchUi.SLIDE_BLINK);
+        } else {
+            System.println("exit");
+            WatchUi.popView(WatchUi.SLIDE_DOWN);
         }
     }
 

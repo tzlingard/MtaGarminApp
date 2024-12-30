@@ -1,0 +1,33 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 1; ]
+module BufMonkey {
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 1; ]
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 5; ]
+    class ProtoEncoder{
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 5; ]
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 5; ]
+        static
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 9; @position = 13; ]
+        protected
+        var memberDict;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 11; ]
+        function initialize(dict) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoEncoder_mc_11_28_13_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc" 12 3 ]
+            %tmp.2 = lgetv %dict;
+            putv self :memberDict %tmp.2;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoEncoder_mc_11_28_13_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 18; ]
+        function encode(bufMonkeyType) {
+        }
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoEncoder.mc"; @line = 1; ]
+<init> {
+}

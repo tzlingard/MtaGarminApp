@@ -1,0 +1,1362 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 1; ]
+using Toybox.StringUtil;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 2; ]
+using Toybox.Lang;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 3; ]
+using Toybox.System;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 5; ]
+module BufMonkey {
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 9; ]
+    class ProtoDecoder{
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 9; ]
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 9; ]
+        static
+        <init> {
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 13; @position = 13; ]
+        protected
+        var memberDict;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 18; @position = 13; ]
+        protected
+        var currentIndex;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 23; @position = 13; ]
+        protected
+        var lastReadLength;
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 25; ]
+        function initialize(dict) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_25_28_29_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 26 3 ]
+            %tmp.2 = lgetv %dict;
+            putv self :memberDict %tmp.2;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 27 3 ]
+            %tmp.3 = 0;
+            putv self :currentIndex %tmp.3;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 28 3 ]
+            %tmp.4 = 0;
+            putv self :lastReadLength %tmp.4;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_25_28_29_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 36; ]
+        function decode(bytes, bufMonkeyType) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_36_40_59_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 37 3 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_stmt:
+            %tmp.2 = lgetv %bufMonkeyType;
+            %tmp.3 = null;
+            %tmp.4 = ne %tmp.2 %tmp.3;
+            bf %tmp.4 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_29_56_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 38 7 ]
+            while @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_test @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_test:
+            %tmp.6 = getv ? :currentIndex;
+            %tmp.7 = lgetv %bytes;
+            %tmp.8 = getv function %tmp.7 :size;
+            %tmp.9 = invoke %tmp.7 %tmp.8();
+            %tmp.10 = lt %tmp.6 %tmp.9;
+            bf %tmp.10 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_42_55_7_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 40 8 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_42_55_7_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_42_55_7_stop" ]
+            %protoHeader.1 = local;
+            %tmp.12 = getv ? :ProtoUtils;
+            %tmp.13 = getv function %tmp.12 :parseProtoHeader;
+            %tmp.15 = lgetv %bytes;
+            %tmp.17 = getv ? :currentIndex;
+            %tmp.18 = agetv %tmp.15 %tmp.17;
+            %tmp.20 = getv ? :memberDict;
+            %tmp.21 = invoke %tmp.12 %tmp.13(%tmp.18, %tmp.20);
+            lputv %protoHeader.1 %tmp.21;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 42 8 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_stmt:
+            %tmp.23 = lgetv %protoHeader.1;
+            %tmp.24 = null;
+            %tmp.25 = ne %tmp.23 %tmp.24;
+            bf %tmp.25 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_32_50_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 43 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_32_50_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_32_50_8_stop" ]
+            %fieldVal.2 = local;
+            %tmp.26 = self;
+            %tmp.27 = getv function %tmp.26 :getDecodedValue;
+            %tmp.29 = lgetv %protoHeader.1;
+            %tmp.30 = as %tmp.29 { (!Null) };
+            %tmp.32 = lgetv %bytes;
+            %tmp.33 = invoke %tmp.26 %tmp.27(%tmp.30, %tmp.32);
+            lputv %fieldVal.2 %tmp.33;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 45 9 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_stmt:
+            %tmp.35 = lgetv %fieldVal.2;
+            %tmp.36 = null;
+            %tmp.37 = ne %tmp.35 %tmp.36;
+            bf %tmp.37 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_30_47_9_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 46 10 ]
+            %tmp.38 = lgetv %bufMonkeyType;
+            %tmp.39 = as %tmp.38 { (!Null) };
+            %tmp.40 = getv function %tmp.39 :setValue;
+            %tmp.41 = lgetv %protoHeader.1;
+            %tmp.42 = as %tmp.41 { (!Null) };
+            %tmp.43 = getv %tmp.42 :fieldNum;
+            %tmp.45 = lgetv %fieldVal.2;
+            %tmp.46 = as %tmp.45 { (!Null) };
+            invoke %tmp.39 %tmp.40(%tmp.43, %tmp.46);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_30_47_9_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_47_16_49_9_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 48 10 ]
+            %tmp.47 = getm $.Toybox.System;
+            %tmp.48 = getv function %tmp.47 :println;
+            %tmp.49 = "Val was null! Unable to set field: ";
+            %tmp.50 = lgetv %protoHeader.1;
+            %tmp.51 = as %tmp.50 { (!Null) };
+            %tmp.52 = getv %tmp.51 :fieldNum;
+            %tmp.53 = add %tmp.49 %tmp.52;
+            invoke %tmp.47 %tmp.48(%tmp.53);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_47_16_49_9_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_45_9_49_9_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_32_50_8_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_50_15_52_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 51 9 ]
+            %tmp.54 = getm $.Toybox.System;
+            %tmp.55 = getv function %tmp.54 :println;
+            %tmp.56 = "Unable to parse expected protobuf header!";
+            invoke %tmp.54 %tmp.55(%tmp.56);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_50_15_52_8_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_42_8_52_8_if_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 54 8 ]
+            %tmp.59 = getv ? :currentIndex;
+            %tmp.60 = add %tmp.59 1;
+            putv self :currentIndex dup %tmp.60;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_42_55_7_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_test;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_38_7_55_7_while_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_29_56_6_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_56_13_58_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 57 7 ]
+            %tmp.61 = getm $.Toybox.System;
+            %tmp.62 = getv function %tmp.61 :println;
+            %tmp.63 = "Unable to decode NULL BufMonkeyType!";
+            invoke %tmp.61 %tmp.62(%tmp.63);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_56_13_58_6_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_37_3_58_6_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_36_40_59_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 64; ]
+        private
+        function getDecodedValue(protoHeader, bytes) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_64_55_92_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 65 3 ]
+            %tmp.1 = 0;
+            putv self :lastReadLength %tmp.1;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 67 6 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_64_55_92_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_64_55_92_2_stop" ]
+            %fieldVal.1 = local;
+            %tmp.2 = null;
+            lputv %fieldVal.1 %tmp.2;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 69 6 ]
+            %tmp.3 = lgetv %protoHeader;
+            %tmp.4 = getv %tmp.3 :wireType;
+            push %tmp.4;
+            switch %tmp.4 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 70 7 ]
+            %tmp.5 = dup %tmp.4;
+            %tmp.6 = 0;
+            %tmp.7 = getv function %tmp.5 :equals;
+            %tmp.8 = invoke %tmp.5 %tmp.7 (%tmp.6);
+            bt %tmp.8 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_70_7_73_13_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 74 7 ]
+            %tmp.9 = dup %tmp.4;
+            %tmp.10 = 1;
+            %tmp.11 = getv function %tmp.9 :equals;
+            %tmp.12 = invoke %tmp.9 %tmp.11 (%tmp.10);
+            bt %tmp.12 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_74_7_77_13_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 78 7 ]
+            %tmp.13 = dup %tmp.4;
+            %tmp.14 = 2;
+            %tmp.15 = getv function %tmp.13 :equals;
+            %tmp.16 = invoke %tmp.13 %tmp.15 (%tmp.14);
+            bt %tmp.16 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_78_7_81_13_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 82 7 ]
+            %tmp.17 = dup %tmp.4;
+            %tmp.18 = 5;
+            %tmp.19 = getv function %tmp.17 :equals;
+            %tmp.20 = invoke %tmp.17 %tmp.19 (%tmp.18);
+            bt %tmp.20 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_82_7_85_13_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 86 7 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtDefault:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_70_7_73_13_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 72 8 ]
+            %tmp.21 = self;
+            %tmp.22 = getv function %tmp.21 :parseVarint;
+            %tmp.23 = lgetv %protoHeader;
+            %tmp.24 = getv %tmp.23 :fieldType;
+            %tmp.26 = lgetv %bytes;
+            %tmp.28 = getv ? :currentIndex;
+            %tmp.29 = invoke %tmp.21 %tmp.22(%tmp.24, %tmp.26, %tmp.28);
+            lputv %fieldVal.1 %tmp.29;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 73 8 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_74_7_77_13_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 76 8 ]
+            %tmp.30 = self;
+            %tmp.31 = getv function %tmp.30 :parse64Bit;
+            %tmp.32 = lgetv %protoHeader;
+            %tmp.33 = getv %tmp.32 :fieldType;
+            %tmp.34 = lgetv %bytes;
+            %tmp.35 = getv function %tmp.34 :slice;
+            %tmp.37 = getv ? :currentIndex;
+            %tmp.38 = 1;
+            %tmp.39 = add %tmp.37 %tmp.38;
+            %tmp.41 = getv ? :currentIndex;
+            %tmp.42 = 9;
+            %tmp.43 = add %tmp.41 %tmp.42;
+            %tmp.44 = invoke %tmp.34 %tmp.35(%tmp.39, %tmp.43);
+            %tmp.45 = invoke %tmp.30 %tmp.31(%tmp.33, %tmp.44);
+            lputv %fieldVal.1 %tmp.45;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 77 8 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_78_7_81_13_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 80 8 ]
+            %tmp.46 = self;
+            %tmp.47 = getv function %tmp.46 :parseLengthDelimited;
+            %tmp.48 = lgetv %protoHeader;
+            %tmp.49 = getv %tmp.48 :fieldType;
+            %tmp.51 = lgetv %bytes;
+            %tmp.53 = getv ? :currentIndex;
+            %tmp.54 = invoke %tmp.46 %tmp.47(%tmp.49, %tmp.51, %tmp.53);
+            lputv %fieldVal.1 %tmp.54;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 81 8 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_82_7_85_13_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 84 8 ]
+            %tmp.55 = self;
+            %tmp.56 = getv function %tmp.55 :parse32Bit;
+            %tmp.57 = lgetv %protoHeader;
+            %tmp.58 = getv %tmp.57 :fieldType;
+            %tmp.60 = lgetv %bytes;
+            %tmp.62 = getv ? :currentIndex;
+            %tmp.63 = invoke %tmp.55 %tmp.56(%tmp.58, %tmp.60, %tmp.62);
+            lputv %fieldVal.1 %tmp.63;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 85 8 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_86_7_87_13_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_defaultCodeBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 87 8 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_69_6_88_6_switchStmtEnd:
+            pop;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 90 6 ]
+            %tmp.64 = getv self :currentIndex;
+            %tmp.66 = getv ? :lastReadLength;
+            %tmp.67 = add %tmp.64 %tmp.66;
+            putv self :currentIndex dup %tmp.67;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 91 6 ]
+            %tmp.69 = lgetv %fieldVal.1;
+            ret %tmp.69;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_64_55_92_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 97; ]
+        private
+        function parseVarint(type, buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_97_47_118_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 98 3 ]
+            %tmp.2 = lgetv %type;
+            push %tmp.2;
+            switch %tmp.2 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 99 4 ]
+            %tmp.3 = dup %tmp.2;
+            %tmp.4 = "sint32";
+            %tmp.5 = getv function %tmp.3 :equals;
+            %tmp.6 = invoke %tmp.3 %tmp.5 (%tmp.4);
+            bt %tmp.6 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_99_4_100_39_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 101 4 ]
+            %tmp.7 = dup %tmp.2;
+            %tmp.8 = "int32";
+            %tmp.9 = getv function %tmp.7 :equals;
+            %tmp.10 = invoke %tmp.7 %tmp.9 (%tmp.8);
+            bt %tmp.10 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_101_4_101_16_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 102 4 ]
+            %tmp.11 = dup %tmp.2;
+            %tmp.12 = "uint32";
+            %tmp.13 = getv function %tmp.11 :equals;
+            %tmp.14 = invoke %tmp.11 %tmp.13 (%tmp.12);
+            bt %tmp.14 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_102_4_102_17_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 103 4 ]
+            %tmp.15 = dup %tmp.2;
+            %tmp.16 = "enum";
+            %tmp.17 = getv function %tmp.15 :equals;
+            %tmp.18 = invoke %tmp.15 %tmp.17 (%tmp.16);
+            bt %tmp.18 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_103_4_104_41_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 105 4 ]
+            %tmp.19 = dup %tmp.2;
+            %tmp.20 = "int64";
+            %tmp.21 = getv function %tmp.19 :equals;
+            %tmp.22 = invoke %tmp.19 %tmp.21 (%tmp.20);
+            bt %tmp.22 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_105_4_105_16_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 106 4 ]
+            %tmp.23 = dup %tmp.2;
+            %tmp.24 = "uint64";
+            %tmp.25 = getv function %tmp.23 :equals;
+            %tmp.26 = invoke %tmp.23 %tmp.25 (%tmp.24);
+            bt %tmp.26 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_106_4_107_42_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 108 4 ]
+            %tmp.27 = dup %tmp.2;
+            %tmp.28 = "sint64";
+            %tmp.29 = getv function %tmp.27 :equals;
+            %tmp.30 = invoke %tmp.27 %tmp.29 (%tmp.28);
+            bt %tmp.30 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_108_4_109_40_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 110 4 ]
+            %tmp.31 = dup %tmp.2;
+            %tmp.32 = "bool";
+            %tmp.33 = getv function %tmp.31 :equals;
+            %tmp.34 = invoke %tmp.31 %tmp.33 (%tmp.32);
+            bt %tmp.34 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_110_4_111_46_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 112 4 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_switchStmtDefault:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_99_4_100_39_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 100 5 ]
+            %tmp.35 = self;
+            %tmp.36 = getv function %tmp.35 :parseSignedVarInt;
+            %tmp.38 = lgetv %buf;
+            %tmp.40 = lgetv %idx;
+            %tmp.41 = invoke %tmp.35 %tmp.36(%tmp.38, %tmp.40);
+            ret %tmp.41;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_101_4_101_16_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_102_4_102_17_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_103_4_104_41_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 104 5 ]
+            %tmp.42 = self;
+            %tmp.43 = getv function %tmp.42 :parseUnsignedVarInt;
+            %tmp.45 = lgetv %buf;
+            %tmp.47 = lgetv %idx;
+            %tmp.48 = invoke %tmp.42 %tmp.43(%tmp.45, %tmp.47);
+            ret %tmp.48;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_105_4_105_16_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_106_4_107_42_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 107 5 ]
+            %tmp.49 = self;
+            %tmp.50 = getv function %tmp.49 :parseUnsignedVarLong;
+            %tmp.52 = lgetv %buf;
+            %tmp.54 = lgetv %idx;
+            %tmp.55 = invoke %tmp.49 %tmp.50(%tmp.52, %tmp.54);
+            ret %tmp.55;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_108_4_109_40_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 109 5 ]
+            %tmp.56 = self;
+            %tmp.57 = getv function %tmp.56 :parseSignedVarLong;
+            %tmp.59 = lgetv %buf;
+            %tmp.61 = lgetv %idx;
+            %tmp.62 = invoke %tmp.56 %tmp.57(%tmp.59, %tmp.61);
+            ret %tmp.62;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_110_4_111_46_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 111 5 ]
+            %tmp.63 = self;
+            %tmp.64 = getv function %tmp.63 :parseUnsignedVarInt;
+            %tmp.66 = lgetv %buf;
+            %tmp.68 = lgetv %idx;
+            %tmp.69 = invoke %tmp.63 %tmp.64(%tmp.66, %tmp.68);
+            %tmp.70 = 1;
+            %tmp.71 = eq %tmp.69 %tmp.70;
+            ret %tmp.71;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_112_4_114_10_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_defaultCodeBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 113 5 ]
+            %tmp.72 = getm $.Toybox.System;
+            %tmp.73 = getv function %tmp.72 :println;
+            %tmp.74 = "Unknown Varint type: ";
+            %tmp.76 = lgetv %type;
+            %tmp.77 = add %tmp.74 %tmp.76;
+            invoke %tmp.72 %tmp.73(%tmp.77);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 114 5 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_98_3_115_3_switchStmtEnd:
+            pop;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 117 3 ]
+            %tmp.78 = null;
+            ret %tmp.78;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_97_47_118_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 123; ]
+        private
+        function parseLengthDelimited(type, buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_123_56_138_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 124 3 ]
+            %tmp.2 = lgetv %type;
+            push %tmp.2;
+            switch %tmp.2 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 125 4 ]
+            %tmp.3 = dup %tmp.2;
+            %tmp.4 = "string";
+            %tmp.5 = getv function %tmp.3 :equals;
+            %tmp.6 = invoke %tmp.3 %tmp.5 (%tmp.4);
+            bt %tmp.6 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_125_4_126_33_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 127 4 ]
+            %tmp.7 = dup %tmp.2;
+            %tmp.8 = "bytes";
+            %tmp.9 = getv function %tmp.7 :equals;
+            %tmp.10 = invoke %tmp.7 %tmp.9 (%tmp.8);
+            bt %tmp.10 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_127_4_127_16_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 128 4 ]
+            %tmp.11 = dup %tmp.2;
+            %tmp.12 = "embedded";
+            %tmp.13 = getv function %tmp.11 :equals;
+            %tmp.14 = invoke %tmp.11 %tmp.13 (%tmp.12);
+            bt %tmp.14 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_128_4_129_45_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 130 4 ]
+            %tmp.15 = dup %tmp.2;
+            %tmp.16 = "repeated";
+            %tmp.17 = getv function %tmp.15 :equals;
+            %tmp.18 = invoke %tmp.15 %tmp.17 (%tmp.16);
+            bt %tmp.18 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_130_4_131_43_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 132 4 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_switchStmtDefault:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_125_4_126_33_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 126 5 ]
+            %tmp.19 = self;
+            %tmp.20 = getv function %tmp.19 :parseString;
+            %tmp.22 = lgetv %buf;
+            %tmp.24 = lgetv %idx;
+            %tmp.25 = invoke %tmp.19 %tmp.20(%tmp.22, %tmp.24);
+            ret %tmp.25;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_127_4_127_16_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_128_4_129_45_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 129 5 ]
+            %tmp.26 = self;
+            %tmp.27 = getv function %tmp.26 :parseLengthDelimitedVal;
+            %tmp.29 = lgetv %buf;
+            %tmp.31 = lgetv %idx;
+            %tmp.32 = invoke %tmp.26 %tmp.27(%tmp.29, %tmp.31);
+            ret %tmp.32;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_130_4_131_43_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 131 5 ]
+            %tmp.33 = self;
+            %tmp.34 = getv function %tmp.33 :parseRepeatedElements;
+            %tmp.36 = lgetv %buf;
+            %tmp.38 = lgetv %idx;
+            %tmp.39 = invoke %tmp.33 %tmp.34(%tmp.36, %tmp.38);
+            ret %tmp.39;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_132_4_134_10_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_defaultCodeBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 133 5 ]
+            %tmp.40 = getm $.Toybox.System;
+            %tmp.41 = getv function %tmp.40 :println;
+            %tmp.42 = "Unknown Length Delimited type: ";
+            %tmp.44 = lgetv %type;
+            %tmp.45 = add %tmp.42 %tmp.44;
+            invoke %tmp.40 %tmp.41(%tmp.45);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 134 5 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_124_3_135_3_switchStmtEnd:
+            pop;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 137 3 ]
+            %tmp.46 = null;
+            ret %tmp.46;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_123_56_138_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 143; ]
+        private
+        function parse32Bit(type, buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_143_46_158_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 144 3 ]
+            %tmp.1 = getv self :lastReadLength;
+            %tmp.2 = 4;
+            %tmp.3 = add %tmp.1 %tmp.2;
+            putv self :lastReadLength dup %tmp.3;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 145 3 ]
+            %tmp.5 = lgetv %type;
+            push %tmp.5;
+            switch %tmp.5 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 146 4 ]
+            %tmp.6 = dup %tmp.5;
+            %tmp.7 = "float";
+            %tmp.8 = getv function %tmp.6 :equals;
+            %tmp.9 = invoke %tmp.6 %tmp.8 (%tmp.7);
+            bt %tmp.9 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_146_4_147_32_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 148 4 ]
+            %tmp.10 = dup %tmp.5;
+            %tmp.11 = "fixed32";
+            %tmp.12 = getv function %tmp.10 :equals;
+            %tmp.13 = invoke %tmp.10 %tmp.12 (%tmp.11);
+            bt %tmp.13 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_148_4_149_43_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 150 4 ]
+            %tmp.14 = dup %tmp.5;
+            %tmp.15 = "sfixed32";
+            %tmp.16 = getv function %tmp.14 :equals;
+            %tmp.17 = invoke %tmp.14 %tmp.16 (%tmp.15);
+            bt %tmp.17 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_150_4_151_43_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 152 4 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_switchStmtDefault:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_146_4_147_32_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 147 5 ]
+            %tmp.18 = self;
+            %tmp.19 = getv function %tmp.18 :parseFloat;
+            %tmp.21 = lgetv %buf;
+            %tmp.23 = lgetv %idx;
+            %tmp.24 = invoke %tmp.18 %tmp.19(%tmp.21, %tmp.23);
+            ret %tmp.24;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_148_4_149_43_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 149 5 ]
+            %tmp.26 = getv ? :ProtoUtils;
+            %tmp.27 = getv function %tmp.26 :readUintLE;
+            %tmp.29 = lgetv %buf;
+            %tmp.31 = lgetv %idx;
+            %tmp.32 = invoke %tmp.26 %tmp.27(%tmp.29, %tmp.31);
+            ret %tmp.32;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_150_4_151_43_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 151 5 ]
+            %tmp.34 = getv ? :ProtoUtils;
+            %tmp.35 = getv function %tmp.34 :readSintLE;
+            %tmp.37 = lgetv %buf;
+            %tmp.39 = lgetv %idx;
+            %tmp.40 = invoke %tmp.34 %tmp.35(%tmp.37, %tmp.39);
+            ret %tmp.40;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_152_4_154_10_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_defaultCodeBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 153 5 ]
+            %tmp.41 = getm $.Toybox.System;
+            %tmp.42 = getv function %tmp.41 :println;
+            %tmp.43 = "Unknown 32 bit type: ";
+            %tmp.45 = lgetv %type;
+            %tmp.46 = add %tmp.43 %tmp.45;
+            invoke %tmp.41 %tmp.42(%tmp.46);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 154 5 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_145_3_155_3_switchStmtEnd:
+            pop;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 157 3 ]
+            %tmp.47 = null;
+            ret %tmp.47;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_143_46_158_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 163; ]
+        private
+        function parse64Bit(type, buf) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_163_41_177_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 164 3 ]
+            %tmp.1 = getv self :lastReadLength;
+            %tmp.2 = 8;
+            %tmp.3 = add %tmp.1 %tmp.2;
+            putv self :lastReadLength dup %tmp.3;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 165 3 ]
+            %tmp.5 = lgetv %type;
+            push %tmp.5;
+            switch %tmp.5 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 166 4 ]
+            %tmp.6 = dup %tmp.5;
+            %tmp.7 = "double";
+            %tmp.8 = getv function %tmp.6 :equals;
+            %tmp.9 = invoke %tmp.6 %tmp.8 (%tmp.7);
+            bt %tmp.9 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_166_4_167_41_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 168 4 ]
+            %tmp.10 = dup %tmp.5;
+            %tmp.11 = "fixed64";
+            %tmp.12 = getv function %tmp.10 :equals;
+            %tmp.13 = invoke %tmp.10 %tmp.12 (%tmp.11);
+            bt %tmp.13 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_168_4_168_18_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 169 4 ]
+            %tmp.14 = dup %tmp.5;
+            %tmp.15 = "sfixed64";
+            %tmp.16 = getv function %tmp.14 :equals;
+            %tmp.17 = invoke %tmp.14 %tmp.16 (%tmp.15);
+            bt %tmp.17 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_169_4_170_36_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 171 4 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_switchStmtDefault:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_166_4_167_41_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 167 5 ]
+            %tmp.18 = self;
+            %tmp.19 = getv function %tmp.18 :parse64bitFloat;
+            %tmp.20 = 0;
+            %tmp.21 = 4;
+            %tmp.23 = lgetv %buf;
+            %tmp.24 = 0;
+            %tmp.25 = invoke %tmp.18 %tmp.19(%tmp.20, %tmp.21, %tmp.23, %tmp.24);
+            ret %tmp.25;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_168_4_168_18_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_169_4_170_36_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 170 5 ]
+            %tmp.26 = self;
+            %tmp.27 = getv function %tmp.26 :parseUnsignedLongLE;
+            %tmp.29 = lgetv %buf;
+            %tmp.30 = invoke %tmp.26 %tmp.27(%tmp.29);
+            ret %tmp.30;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_171_4_173_10_switchCase:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_defaultCodeBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 172 5 ]
+            %tmp.31 = getm $.Toybox.System;
+            %tmp.32 = getv function %tmp.31 :println;
+            %tmp.33 = "Unknown 64 bit type: ";
+            %tmp.35 = lgetv %type;
+            %tmp.36 = add %tmp.33 %tmp.35;
+            invoke %tmp.31 %tmp.32(%tmp.36);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 173 5 ]
+            goto break @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_165_3_174_3_switchStmtEnd:
+            pop;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 176 3 ]
+            %tmp.37 = null;
+            ret %tmp.37;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_163_41_177_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 182; ]
+        private
+        function parseUnsignedVarInt(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 183 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_stop" ]
+            %shifter.1 = local;
+            %tmp.1 = 0;
+            lputv %shifter.1 %tmp.1;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 184 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_stop" ]
+            %val.2 = local;
+            %tmp.2 = 0;
+            lputv %val.2 %tmp.2;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 186 6 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_186_6_193_28_do_while_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_187_6_192_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 188 10 ]
+            %tmp.5 = lgetv %idx;
+            %tmp.6 = add %tmp.5 1;
+            lputv %idx %tmp.6;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 189 10 ]
+            %tmp.7 = lgetv %val.2;
+            %tmp.9 = lgetv %buf;
+            %tmp.11 = lgetv %idx;
+            %tmp.12 = agetv %tmp.9 %tmp.11;
+            %tmp.13 = 0x7F;
+            %tmp.14 = bitand %tmp.12 %tmp.13;
+            %tmp.16 = lgetv %shifter.1;
+            %tmp.17 = shl %tmp.14 %tmp.16;
+            %tmp.18 = bitor %tmp.7 %tmp.17;
+            lputv %val.2 %tmp.18;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 190 10 ]
+            %tmp.19 = lgetv %shifter.1;
+            %tmp.20 = 7;
+            %tmp.21 = add %tmp.19 %tmp.20;
+            lputv %shifter.1 %tmp.21;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 191 10 ]
+            %tmp.24 = getv ? :lastReadLength;
+            %tmp.25 = add %tmp.24 1;
+            putv self :lastReadLength dup %tmp.25;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_187_6_192_6_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_186_6_193_28_do_while_test:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 193 13 ]
+            %tmp.27 = lgetv %buf;
+            %tmp.29 = lgetv %idx;
+            %tmp.30 = agetv %tmp.27 %tmp.29;
+            %tmp.31 = 0x80;
+            %tmp.32 = bitand %tmp.30 %tmp.31;
+            bt %tmp.32 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_186_6_193_28_do_while_begin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_186_6_193_28_do_while_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 195 6 ]
+            %tmp.34 = lgetv %val.2;
+            ret %tmp.34;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_182_49_196_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 201; ]
+        private
+        function parseUnsignedVarLong(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 202 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_stop" ]
+            %shifter.1 = local;
+            %tmp.1 = 0;
+            lputv %shifter.1 %tmp.1;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 203 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_stop" ]
+            %val.2 = local;
+            %tmp.2 = 0l;
+            lputv %val.2 %tmp.2;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 205 6 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_205_6_212_38_do_while_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_206_6_211_6_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 207 10 ]
+            %tmp.5 = lgetv %idx;
+            %tmp.6 = add %tmp.5 1;
+            lputv %idx %tmp.6;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 208 10 ]
+            %tmp.7 = lgetv %val.2;
+            %tmp.9 = lgetv %buf;
+            %tmp.11 = lgetv %idx;
+            %tmp.12 = agetv %tmp.9 %tmp.11;
+            %tmp.13 = 0x7F;
+            %tmp.14 = bitand %tmp.12 %tmp.13;
+            %tmp.16 = lgetv %shifter.1;
+            %tmp.17 = shl %tmp.14 %tmp.16;
+            %tmp.18 = bitor %tmp.7 %tmp.17;
+            lputv %val.2 %tmp.18;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 209 10 ]
+            %tmp.19 = lgetv %shifter.1;
+            %tmp.20 = 7;
+            %tmp.21 = add %tmp.19 %tmp.20;
+            lputv %shifter.1 %tmp.21;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 210 10 ]
+            %tmp.24 = getv ? :lastReadLength;
+            %tmp.25 = add %tmp.24 1;
+            putv self :lastReadLength dup %tmp.25;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_206_6_211_6_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_205_6_212_38_do_while_test:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 212 13 ]
+            %tmp.27 = lgetv %buf;
+            %tmp.29 = lgetv %idx;
+            %tmp.30 = agetv %tmp.27 %tmp.29;
+            %tmp.31 = getv function %tmp.30 :toLong;
+            %tmp.32 = invoke %tmp.30 %tmp.31();
+            %tmp.33 = 0x80l;
+            %tmp.34 = bitand %tmp.32 %tmp.33;
+            bt %tmp.34 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_205_6_212_38_do_while_begin;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_205_6_212_38_do_while_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 214 6 ]
+            %tmp.36 = lgetv %val.2;
+            ret %tmp.36;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_201_50_215_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 220; ]
+        private
+        function parseSignedVarInt(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 221 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_stop" ]
+            %raw.1 = local;
+            %tmp.1 = self;
+            %tmp.2 = getv function %tmp.1 :parseUnsignedVarInt;
+            %tmp.4 = lgetv %buf;
+            %tmp.6 = lgetv %idx;
+            %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+            lputv %raw.1 %tmp.7;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 222 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_stop" ]
+            %temp.2 = local;
+            %tmp.9 = lgetv %raw.1;
+            %tmp.10 = 31;
+            %tmp.11 = shl %tmp.9 %tmp.10;
+            %tmp.12 = 31;
+            %tmp.13 = shr %tmp.11 %tmp.12;
+            %tmp.15 = lgetv %raw.1;
+            %tmp.16 = xor %tmp.13 %tmp.15;
+            %tmp.17 = 1;
+            %tmp.18 = shr %tmp.16 %tmp.17;
+            lputv %temp.2 %tmp.18;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 226 9 ]
+            %tmp.20 = lgetv %temp.2;
+            %tmp.22 = lgetv %raw.1;
+            %tmp.23 = 1;
+            %tmp.24 = 31;
+            %tmp.25 = shl %tmp.23 %tmp.24;
+            %tmp.26 = bitand %tmp.22 %tmp.25;
+            %tmp.27 = xor %tmp.20 %tmp.26;
+            ret %tmp.27;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_220_47_228_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 233; ]
+        private
+        function parseSignedVarLong(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 234 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_stop" ]
+            %raw.1 = local;
+            %tmp.1 = self;
+            %tmp.2 = getv function %tmp.1 :parseUnsignedVarLong;
+            %tmp.4 = lgetv %buf;
+            %tmp.6 = lgetv %idx;
+            %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+            lputv %raw.1 %tmp.7;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 235 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_stop" ]
+            %temp.2 = local;
+            %tmp.9 = lgetv %raw.1;
+            %tmp.10 = 63;
+            %tmp.11 = shl %tmp.9 %tmp.10;
+            %tmp.12 = 63;
+            %tmp.13 = shr %tmp.11 %tmp.12;
+            %tmp.15 = lgetv %raw.1;
+            %tmp.16 = xor %tmp.13 %tmp.15;
+            %tmp.17 = 1;
+            %tmp.18 = shr %tmp.16 %tmp.17;
+            lputv %temp.2 %tmp.18;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 239 9 ]
+            %tmp.20 = lgetv %temp.2;
+            %tmp.22 = lgetv %raw.1;
+            %tmp.23 = 1l;
+            %tmp.24 = 63;
+            %tmp.25 = shl %tmp.23 %tmp.24;
+            %tmp.26 = bitand %tmp.22 %tmp.25;
+            %tmp.27 = xor %tmp.20 %tmp.26;
+            ret %tmp.27;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_233_48_241_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 246; ]
+        private
+        function parseUnsignedLongLE(buf) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 247 3 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_3_250_3_if_stmt:
+            %tmp.1 = lgetv %buf;
+            %tmp.2 = getv function %tmp.1 :size;
+            %tmp.3 = invoke %tmp.1 %tmp.2();
+            %tmp.4 = 8;
+            %tmp.5 = ne %tmp.3 %tmp.4;
+            bf %tmp.5 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_3_250_3_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_3_250_3_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_23_250_3_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 248 4 ]
+            %tmp.6 = getm $.Toybox.System;
+            %tmp.7 = getv function %tmp.6 :println;
+            %tmp.8 = "Buffer size must be of length 8 or 64 bits to parse!";
+            invoke %tmp.6 %tmp.7(%tmp.8);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 249 4 ]
+            %tmp.9 = 0l;
+            ret %tmp.9;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_23_250_3_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_3_250_3_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_247_3_250_3_if_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 252 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_stop" ]
+            %higher.1 = local;
+            %tmp.11 = getv ? :ProtoUtils;
+            %tmp.12 = getv function %tmp.11 :readUintLE;
+            %tmp.14 = lgetv %buf;
+            %tmp.15 = 4;
+            %tmp.16 = invoke %tmp.11 %tmp.12(%tmp.14, %tmp.15);
+            lputv %higher.1 %tmp.16;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 253 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_stop" ]
+            %lower.2 = local;
+            %tmp.18 = getv ? :ProtoUtils;
+            %tmp.19 = getv function %tmp.18 :readUintLE;
+            %tmp.21 = lgetv %buf;
+            %tmp.22 = 0;
+            %tmp.23 = invoke %tmp.18 %tmp.19(%tmp.21, %tmp.22);
+            lputv %lower.2 %tmp.23;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 254 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_stop" ]
+            %combined.3 = local;
+            %tmp.25 = lgetv %higher.1;
+            %tmp.26 = 32;
+            %tmp.27 = shl %tmp.25 %tmp.26;
+            %tmp.29 = lgetv %lower.2;
+            %tmp.30 = bitor %tmp.27 %tmp.29;
+            lputv %combined.3 %tmp.30;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 255 3 ]
+            %tmp.32 = lgetv %combined.3;
+            ret %tmp.32;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_246_44_256_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 261; ]
+        private
+        function parseFloat(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_261_40_270_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 262 3 ]
+            %tmp.3 = lgetv %idx;
+            %tmp.4 = add %tmp.3 1;
+            lputv %idx %tmp.4;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 263 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_261_40_270_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_261_40_270_2_stop" ]
+            %val.1 = local;
+            %tmp.5 = newba 0;
+            lputv %val.1 %tmp.5;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 265 3 ]
+            for @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_test @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_incr @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_init:
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_begin" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_end" ]
+            %i.2 = local;
+            %tmp.6 = 0;
+            lputv %i.2 %tmp.6;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_test:
+            %tmp.8 = lgetv %i.2;
+            %tmp.9 = 4;
+            %tmp.10 = lt %tmp.8 %tmp.9;
+            bf %tmp.10 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_30_267_3_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 266 4 ]
+            %tmp.11 = lgetv %val.1;
+            %tmp.12 = getv function %tmp.11 :add;
+            %tmp.14 = lgetv %buf;
+            %tmp.16 = lgetv %idx;
+            %tmp.18 = lgetv %i.2;
+            %tmp.19 = add %tmp.16 %tmp.18;
+            %tmp.20 = agetv %tmp.14 %tmp.19;
+            invoke %tmp.11 %tmp.12(%tmp.20);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_30_267_3_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_incr:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 265 ]
+            %tmp.23 = lgetv %i.2;
+            %tmp.24 = add %tmp.23 1;
+            lputv %i.2 %tmp.24;
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_test;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_265_3_267_3_for_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 269 3 ]
+            %tmp.25 = lgetv %val.1;
+            %tmp.26 = getv function %tmp.25 :decodeNumber;
+            %tmp.27 = getm $.Toybox.Lang;
+            %tmp.28 = getv %tmp.27 :NUMBER_FORMAT_FLOAT;
+            %tmp.29 = newd 1;
+            %tmp.31 = const :endianness;
+            %tmp.32 = getm $.Toybox.Lang;
+            %tmp.33 = getv %tmp.32 :ENDIAN_LITTLE;
+            %tmp.34 = dup %tmp.29;
+            %tmp.35 = aputv %tmp.34 %tmp.31 %tmp.33;
+            %tmp.36 = invoke %tmp.25 %tmp.26(%tmp.28, %tmp.35);
+            ret %tmp.36;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_261_40_270_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 275; ]
+        private
+        function parseString(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_275_41_279_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 276 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_275_41_279_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_275_41_279_2_stop" ]
+            %val.1 = local;
+            %tmp.1 = self;
+            %tmp.2 = getv function %tmp.1 :parseLengthDelimitedVal;
+            %tmp.4 = lgetv %buf;
+            %tmp.6 = lgetv %idx;
+            %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+            lputv %val.1 %tmp.7;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 277 3 ]
+            %tmp.8 = getm $.Toybox.StringUtil;
+            %tmp.9 = getv function %tmp.8 :convertEncodedString;
+            %tmp.11 = lgetv %val.1;
+            %tmp.12 = newd 2;
+            %tmp.14 = const :fromRepresentation;
+            %tmp.15 = getm $.Toybox.StringUtil;
+            %tmp.16 = getv %tmp.15 :REPRESENTATION_BYTE_ARRAY;
+            %tmp.17 = dup %tmp.12;
+            %tmp.18 = aputv %tmp.17 %tmp.14 %tmp.16;
+            %tmp.20 = const :toRepresentation;
+            %tmp.21 = getm $.Toybox.StringUtil;
+            %tmp.22 = getv %tmp.21 :REPRESENTATION_STRING_PLAIN_TEXT;
+            %tmp.23 = dup %tmp.18;
+            %tmp.24 = aputv %tmp.23 %tmp.20 %tmp.22;
+            %tmp.25 = invoke %tmp.8 %tmp.9(%tmp.11, %tmp.24);
+            ret %tmp.25;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_275_41_279_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 284; ]
+        private
+        function parseLengthDelimitedVal(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 285 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_stop" ]
+            %length.1 = local;
+            %tmp.1 = self;
+            %tmp.2 = getv function %tmp.1 :parseUnsignedVarInt;
+            %tmp.4 = lgetv %buf;
+            %tmp.6 = lgetv %idx;
+            %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+            lputv %length.1 %tmp.7;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 286 3 ]
+            %tmp.8 = lgetv %idx;
+            %tmp.10 = getv ? :lastReadLength;
+            %tmp.11 = 1;
+            %tmp.12 = add %tmp.10 %tmp.11;
+            %tmp.13 = add %tmp.8 %tmp.12;
+            lputv %idx %tmp.13;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 288 3 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_stop" ]
+            %val.2 = local;
+            %tmp.14 = newba 0;
+            lputv %val.2 %tmp.14;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 290 3 ]
+            for @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_test @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_incr @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_init:
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_begin" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_end" ]
+            %i.3 = local;
+            %tmp.15 = 0;
+            lputv %i.3 %tmp.15;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_test:
+            %tmp.17 = lgetv %i.3;
+            %tmp.19 = lgetv %length.1;
+            %tmp.20 = lt %tmp.17 %tmp.19;
+            bf %tmp.20 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_35_292_3_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 291 4 ]
+            %tmp.21 = lgetv %val.2;
+            %tmp.22 = getv function %tmp.21 :add;
+            %tmp.24 = lgetv %buf;
+            %tmp.26 = lgetv %idx;
+            %tmp.28 = lgetv %i.3;
+            %tmp.29 = add %tmp.26 %tmp.28;
+            %tmp.30 = agetv %tmp.24 %tmp.29;
+            invoke %tmp.21 %tmp.22(%tmp.30);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_35_292_3_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_incr:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 290 ]
+            %tmp.33 = lgetv %i.3;
+            %tmp.34 = add %tmp.33 1;
+            lputv %i.3 %tmp.34;
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_test;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_290_3_292_3_for_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 294 3 ]
+            %tmp.35 = getv self :lastReadLength;
+            %tmp.37 = lgetv %length.1;
+            %tmp.38 = add %tmp.35 %tmp.37;
+            putv self :lastReadLength dup %tmp.38;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 296 3 ]
+            %tmp.40 = lgetv %val.2;
+            ret %tmp.40;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_284_53_297_2_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 302; ]
+        private
+        function parse64bitFloat(off0, off1, buf, pos) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 303 12 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop" ]
+            %lo.1 = local;
+            %tmp.2 = getv ? :ProtoUtils;
+            %tmp.3 = getv function %tmp.2 :readUintLE;
+            %tmp.5 = lgetv %buf;
+            %tmp.7 = lgetv %pos;
+            %tmp.9 = lgetv %off0;
+            %tmp.10 = add %tmp.7 %tmp.9;
+            %tmp.11 = invoke %tmp.2 %tmp.3(%tmp.5, %tmp.10);
+            %tmp.12 = getv function %tmp.11 :toLong;
+            %tmp.13 = invoke %tmp.11 %tmp.12();
+            lputv %lo.1 %tmp.13;
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop" ]
+            %hi.2 = local;
+            %tmp.15 = getv ? :ProtoUtils;
+            %tmp.16 = getv function %tmp.15 :readUintLE;
+            %tmp.18 = lgetv %buf;
+            %tmp.20 = lgetv %pos;
+            %tmp.22 = lgetv %off1;
+            %tmp.23 = add %tmp.20 %tmp.22;
+            %tmp.24 = invoke %tmp.15 %tmp.16(%tmp.18, %tmp.23);
+            %tmp.25 = getv function %tmp.24 :toLong;
+            %tmp.26 = invoke %tmp.24 %tmp.25();
+            lputv %hi.2 %tmp.26;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 306 12 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop" ]
+            %sign.3 = local;
+            %tmp.28 = lgetv %hi.2;
+            %tmp.29 = 31;
+            %tmp.30 = shr %tmp.28 %tmp.29;
+            %tmp.31 = 2;
+            %tmp.32 = mul %tmp.30 %tmp.31;
+            %tmp.33 = 1;
+            %tmp.34 = add %tmp.32 %tmp.33;
+            lputv %sign.3 %tmp.34;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 307 12 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop" ]
+            %exponent.4 = local;
+            %tmp.36 = lgetv %hi.2;
+            %tmp.37 = 20;
+            %tmp.38 = shr %tmp.36 %tmp.37;
+            %tmp.39 = 2047;
+            %tmp.40 = bitand %tmp.38 %tmp.39;
+            lputv %exponent.4 %tmp.40;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 308 12 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop" ]
+            %mantissa.5 = local;
+            %tmp.41 = 4294967296l;
+            %tmp.43 = lgetv %hi.2;
+            %tmp.44 = 1048575l;
+            %tmp.45 = bitand %tmp.43 %tmp.44;
+            %tmp.46 = mul %tmp.41 %tmp.45;
+            %tmp.48 = lgetv %lo.1;
+            %tmp.49 = add %tmp.46 %tmp.48;
+            lputv %mantissa.5 %tmp.49;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 310 12 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_stmt:
+            %tmp.51 = lgetv %exponent.4;
+            %tmp.52 = 2047;
+            %tmp.53 = eq %tmp.51 %tmp.52;
+            bf %tmp.53 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_33_316_12_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 311 14 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_stmt:
+            %tmp.55 = lgetv %mantissa.5;
+            %tmp.56 = 0;
+            %tmp.57 = eq %tmp.55 %tmp.56;
+            bf %tmp.57 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_32_313_14_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 312 16 ]
+            %tmp.58 = NaN;
+            ret %tmp.58;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_32_313_14_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_313_21_315_14_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 314 16 ]
+            %tmp.60 = lgetv %sign.3;
+            %tmp.62 = getv ? :INFINITY;
+            %tmp.63 = mul %tmp.60 %tmp.62;
+            ret %tmp.63;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_313_21_315_14_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_311_14_315_14_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_33_316_12_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_316_19_322_12_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 317 14 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_stmt:
+            %tmp.65 = lgetv %exponent.4;
+            %tmp.66 = 0;
+            %tmp.67 = eq %tmp.65 %tmp.66;
+            bf %tmp.67 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_32_319_16_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 318 18 ]
+            %tmp.69 = lgetv %sign.3;
+            %tmp.70 = 5e-324;
+            %tmp.71 = mul %tmp.69 %tmp.70;
+            %tmp.73 = lgetv %mantissa.5;
+            %tmp.74 = mul %tmp.71 %tmp.73;
+            ret %tmp.74;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_32_319_16_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_319_23_321_16_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 320 18 ]
+            %tmp.76 = lgetv %sign.3;
+            %tmp.78 = getv ? :Math;
+            %tmp.79 = getv function %tmp.78 :pow;
+            %tmp.80 = 2;
+            %tmp.82 = lgetv %exponent.4;
+            %tmp.83 = 1075;
+            %tmp.84 = sub %tmp.82 %tmp.83;
+            %tmp.85 = invoke %tmp.78 %tmp.79(%tmp.80, %tmp.84);
+            %tmp.86 = mul %tmp.76 %tmp.85;
+            %tmp.88 = lgetv %mantissa.5;
+            %tmp.89 = 4503599627370496l;
+            %tmp.90 = add %tmp.88 %tmp.89;
+            %tmp.91 = mul %tmp.86 %tmp.90;
+            ret %tmp.91;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_319_23_321_16_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_317_14_321_16_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_316_19_322_12_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_310_12_322_12_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_302_57_324_8_stop:
+        }
+        [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 329; ]
+        private
+        function parseRepeatedElements(buf, idx) {
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 330 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_stop" ]
+            %values.1 = local;
+            %tmp.1 = self;
+            %tmp.2 = getv function %tmp.1 :parseLengthDelimitedVal;
+            %tmp.4 = lgetv %buf;
+            %tmp.6 = lgetv %idx;
+            %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+            lputv %values.1 %tmp.7;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 331 9 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_stop" ]
+            %arr.2 = local;
+            %tmp.8 = newa 0;
+            lputv %arr.2 %tmp.8;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 332 6 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_stop" ]
+            %protoHeader.3 = local;
+            %tmp.10 = getv ? :ProtoUtils;
+            %tmp.11 = getv function %tmp.10 :parseProtoHeader;
+            %tmp.13 = lgetv %buf;
+            %tmp.15 = getv ? :currentIndex;
+            %tmp.16 = agetv %tmp.13 %tmp.15;
+            %tmp.18 = getv ? :memberDict;
+            %tmp.19 = invoke %tmp.10 %tmp.11(%tmp.16, %tmp.18);
+            lputv %protoHeader.3 %tmp.19;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 334 6 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_stmt:
+            %tmp.21 = lgetv %protoHeader.3;
+            %tmp.22 = null;
+            %tmp.23 = ne %tmp.21 %tmp.22;
+            bf %tmp.23 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 335 7 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_stop" ]
+            %fieldTypeArr.4 = local;
+            %tmp.25 = getv ? :memberDict;
+            %tmp.26 = lgetv %protoHeader.3;
+            %tmp.27 = as %tmp.26 { (!Null) };
+            %tmp.28 = getv %tmp.27 :fieldNum;
+            %tmp.29 = agetv %tmp.25 %tmp.28;
+            lputv %fieldTypeArr.4 %tmp.29;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 337 7 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_7_340_7_if_stmt:
+            %tmp.30 = lgetv %fieldTypeArr.4;
+            %tmp.31 = getv function %tmp.30 :size;
+            %tmp.32 = invoke %tmp.30 %tmp.31();
+            %tmp.33 = 2;
+            %tmp.34 = ne %tmp.32 %tmp.33;
+            bf %tmp.34 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_7_340_7_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_7_340_7_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_36_340_7_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 338 8 ]
+            %tmp.35 = getm $.Toybox.System;
+            %tmp.36 = getv function %tmp.35 :println;
+            %tmp.37 = "Unable to parse repeated field type!";
+            invoke %tmp.35 %tmp.36(%tmp.37);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 339 8 ]
+            %tmp.39 = lgetv %arr.2;
+            ret %tmp.39;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_36_340_7_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_7_340_7_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_337_7_340_7_if_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 342 7 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_stop" ]
+            %repeatedType.5 = local;
+            %tmp.41 = lgetv %fieldTypeArr.4;
+            %tmp.42 = 1;
+            %tmp.43 = agetv %tmp.41 %tmp.42;
+            lputv %repeatedType.5 %tmp.43;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 343 7 ]
+            %tmp.44 = lgetv %protoHeader.3;
+            %tmp.45 = as %tmp.44 { (!Null) };
+            %tmp.47 = lgetv %repeatedType.5;
+            putv %tmp.45 :fieldType %tmp.47;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 344 7 ]
+            %tmp.48 = lgetv %protoHeader.3;
+            %tmp.49 = as %tmp.48 { (!Null) };
+            %tmp.51 = getv ? :ProtoUtils;
+            %tmp.52 = getv function %tmp.51 :getWireTypeForFieldType;
+            %tmp.54 = lgetv %repeatedType.5;
+            %tmp.55 = invoke %tmp.51 %tmp.52(%tmp.54);
+            putv %tmp.49 :wireType %tmp.55;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 346 7 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_7_349_7_if_stmt:
+            %tmp.56 = lgetv %protoHeader.3;
+            %tmp.57 = as %tmp.56 { (!Null) };
+            %tmp.58 = getv %tmp.57 :wireType;
+            %tmp.59 = 0;
+            %tmp.60 = lt %tmp.58 %tmp.59;
+            bf %tmp.60 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_7_349_7_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_7_349_7_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_36_349_7_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 347 8 ]
+            %tmp.61 = getm $.Toybox.System;
+            %tmp.62 = getv function %tmp.61 :println;
+            %tmp.63 = "Found unknown wire type for repeated type: ";
+            %tmp.65 = lgetv %repeatedType.5;
+            %tmp.66 = add %tmp.63 %tmp.65;
+            invoke %tmp.61 %tmp.62(%tmp.66);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 348 8 ]
+            %tmp.68 = lgetv %arr.2;
+            ret %tmp.68;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_36_349_7_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_7_349_7_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_346_7_349_7_if_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 351 10 ]
+            %tmp.71 = getv ? :currentIndex;
+            %tmp.72 = add %tmp.71 1;
+            putv self :currentIndex dup %tmp.72;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 353 10 ]
+            for @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_test @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_incr @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_init:
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_begin" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_end" ]
+            %i.6 = local;
+            %tmp.73 = 0;
+            lputv %i.6 %tmp.73;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_test:
+            %tmp.75 = lgetv %i.6;
+            %tmp.76 = lgetv %values.1;
+            %tmp.77 = getv function %tmp.76 :size;
+            %tmp.78 = invoke %tmp.76 %tmp.77();
+            %tmp.79 = lt %tmp.75 %tmp.78;
+            bf %tmp.79 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_begin:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_65_362_10_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 355 11 ]
+            [ "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_65_362_10_start" "C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_65_362_10_stop" ]
+            %fieldVal.7 = local;
+            %tmp.80 = self;
+            %tmp.81 = getv function %tmp.80 :getDecodedValue;
+            %tmp.83 = lgetv %protoHeader.3;
+            %tmp.84 = as %tmp.83 { (!Null) };
+            %tmp.86 = lgetv %buf;
+            %tmp.87 = invoke %tmp.80 %tmp.81(%tmp.84, %tmp.86);
+            lputv %fieldVal.7 %tmp.87;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 357 8 ]
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_stmt:
+            %tmp.89 = lgetv %fieldVal.7;
+            %tmp.90 = null;
+            %tmp.91 = ne %tmp.89 %tmp.90;
+            bf %tmp.91 @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_29_359_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 358 9 ]
+            %tmp.92 = lgetv %arr.2;
+            %tmp.93 = getv function %tmp.92 :add;
+            %tmp.95 = lgetv %fieldVal.7;
+            %tmp.96 = as %tmp.95 { (!Null) };
+            invoke %tmp.92 %tmp.93(%tmp.96);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_29_359_8_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_359_15_361_8_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 360 9 ]
+            %tmp.97 = getm $.Toybox.System;
+            %tmp.98 = getv function %tmp.97 :println;
+            %tmp.99 = "Val was null! Unable to add value to array for field number: ";
+            %tmp.100 = lgetv %protoHeader.3;
+            %tmp.101 = as %tmp.100 { (!Null) };
+            %tmp.102 = getv %tmp.101 :fieldNum;
+            %tmp.103 = add %tmp.99 %tmp.102;
+            invoke %tmp.97 %tmp.98(%tmp.103);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_359_15_361_8_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_357_8_361_8_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_65_362_10_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_incr:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 353 ]
+            %tmp.104 = lgetv %i.6;
+            %tmp.106 = getv ? :lastReadLength;
+            %tmp.107 = add %tmp.104 %tmp.106;
+            lputv %i.6 %tmp.107;
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_test;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_353_10_362_10_for_end:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_30_363_9_stop:
+            goto @C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_363_16_365_9_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 364 10 ]
+            %tmp.108 = getm $.Toybox.System;
+            %tmp.109 = getv function %tmp.108 :println;
+            %tmp.110 = "An error occurred when attempting to parse the protobuf header!";
+            invoke %tmp.108 %tmp.109(%tmp.110);
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_363_16_365_9_stop:
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_334_6_365_9_if_end:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 367 9 ]
+            %tmp.111 = 0;
+            putv self :lastReadLength %tmp.111;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc" 368 9 ]
+            %tmp.113 = lgetv %arr.2;
+            ret %tmp.113;
+C_Users_tzlin_Documents_MtaWatchApp_barrels_BufMonkey_barrel_src_main_monkeyc_ProtoDecoder_mc_329_57_369_8_stop:
+        }
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\barrels\BufMonkey\barrel\src\main\monkeyc\ProtoDecoder.mc"; @line = 1; ]
+<init> {
+}

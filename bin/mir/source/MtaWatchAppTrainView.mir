@@ -1,0 +1,187 @@
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 3; ]
+import Toybox.WatchUi;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 4; ]
+using Toybox.System;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 5; ]
+using Toybox.Communications;
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 7; ]
+class MtaWatchAppTrainView extends WatchUi.View{
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 7; ]
+    <init> {
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 10 8 ]
+        %tmp.1 = newd 0;
+        putv self :_trainData %tmp.1;
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 7; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 9; @position = 8; ]
+    var _selectedTrain as Symbol;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 10; @position = 8; ]
+    var _trainData as Dictionary;
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 12; ]
+    function initialize(selectedTrain) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_12_39_15_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 13 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 14 8 ]
+        %tmp.5 = lgetv %selectedTrain;
+        putv self :_selectedTrain %tmp.5;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_12_39_15_4_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 18; ]
+    function onLayout(dc as Dc) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_18_40_20_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 19 8 ]
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :setLayout;
+        %tmp.4 = getv ? :Rez;
+        %tmp.5 = getv %tmp.4 :Layouts;
+        %tmp.6 = getv function %tmp.5 :MainLayout;
+        %tmp.8 = lgetv %dc;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        invoke %tmp.1 %tmp.2(%tmp.9);
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_18_40_20_4_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 22; ]
+    function onUpdate(dc as Dc) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_22_40_34_4_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 23 8 ]
+        [ "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_22_40_34_4_start" "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_22_40_34_4_stop" ]
+        %view.1 = local;
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :findDrawableById;
+        %tmp.4 = "TestDisplay";
+        %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
+        %tmp.6 = as %tmp.5 Text;
+        lputv %view.1 %tmp.6;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 24 8 ]
+        %tmp.8 = getv ? :_selectedTrain;
+        push %tmp.8;
+        switch %tmp.8 @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtBegin:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 25 12 ]
+        %tmp.9 = dup %tmp.8;
+        %tmp.11 = const :train_1;
+        %tmp.12 = getv function %tmp.9 :equals;
+        %tmp.13 = invoke %tmp.9 %tmp.12 (%tmp.11);
+        bt %tmp.13 @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_25_12_28_21_switchCase;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 29 12 ]
+        %tmp.14 = dup %tmp.8;
+        %tmp.16 = const :train_2;
+        %tmp.17 = getv function %tmp.14 :equals;
+        %tmp.18 = invoke %tmp.14 %tmp.17 (%tmp.16);
+        bt %tmp.18 @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_29_12_31_21_switchCase;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtDefault:
+        goto @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_defaultCodeBegin;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_25_12_28_21_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 26 16 ]
+        %tmp.19 = self;
+        %tmp.20 = getv function %tmp.19 :makeSubwayRequest;
+        %tmp.21 = "1";
+        invoke %tmp.19 %tmp.20(%tmp.21);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 27 16 ]
+        %tmp.22 = lgetv %view.1;
+        %tmp.23 = getv function %tmp.22 :setText;
+        %tmp.24 = "Train data: ";
+        %tmp.26 = getv ? :_trainData;
+        %tmp.27 = add %tmp.24 %tmp.26;
+        invoke %tmp.22 %tmp.23(%tmp.27);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 28 16 ]
+        goto break @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_29_12_31_21_switchCase:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 30 16 ]
+        %tmp.28 = lgetv %view.1;
+        %tmp.29 = getv function %tmp.28 :setText;
+        %tmp.30 = "Train name: 2";
+        invoke %tmp.28 %tmp.29(%tmp.30);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 31 16 ]
+        goto break @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtEnd;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_defaultCodeBegin:
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_24_8_33_8_switchStmtEnd:
+        pop;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_22_40_34_4_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 57; ]
+    function onHide() as Void {
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 61; ]
+    function onReceiveSubwayRequest(responseCode as Number, data as Dictionary or String or Null) as Void {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_61_105_69_3_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 62 7 ]
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_stmt:
+        %tmp.2 = lgetv %responseCode;
+        %tmp.3 = 200;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_false;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_true:
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_32_65_7_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 63 11 ]
+        %tmp.5 = getm $.Toybox.System;
+        %tmp.6 = getv function %tmp.5 :println;
+        %tmp.7 = "Request Successful";
+        invoke %tmp.5 %tmp.6(%tmp.7);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 64 11 ]
+        %tmp.9 = lgetv %data;
+        putv self :_trainData %tmp.9;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_32_65_7_stop:
+        goto @C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_end;
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_false:
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_66_12_68_7_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 67 11 ]
+        %tmp.10 = getm $.Toybox.System;
+        %tmp.11 = getv function %tmp.10 :println;
+        %tmp.12 = "Response code: ";
+        %tmp.14 = lgetv %responseCode;
+        %tmp.15 = add %tmp.12 %tmp.14;
+        %tmp.16 = ", data = ";
+        %tmp.17 = add %tmp.15 %tmp.16;
+        %tmp.19 = lgetv %data;
+        %tmp.20 = add %tmp.17 %tmp.19;
+        invoke %tmp.10 %tmp.11(%tmp.20);
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_66_12_68_7_stop:
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_62_7_68_7_if_end:
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_61_105_69_3_stop:
+    }
+    [ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 71; ]
+    function makeSubwayRequest(trainLine) {
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_start:
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 72 8 ]
+        %tmp.1 = getm $.Toybox.System;
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "Making request";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 74 7 ]
+        [ "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_start" "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_stop" ]
+        %url.1 = local;
+        %tmp.4 = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace";
+        lputv %url.1 %tmp.4;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 77 7 ]
+        [ "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_start" "C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_stop" ]
+        %responseCallback.2 = local;
+        %tmp.5 = self;
+        %tmp.6 = getv function %tmp.5 :method;
+        %tmp.8 = const :onReceiveSubwayRequest;
+        %tmp.9 = invoke %tmp.5 %tmp.6(%tmp.8);
+        lputv %responseCallback.2 %tmp.9;
+[ "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc" 80 7 ]
+        %tmp.10 = getm $.Toybox.Communications;
+        %tmp.11 = getv function %tmp.10 :makeWebRequest;
+        %tmp.13 = lgetv %url.1;
+        %tmp.14 = newd 0;
+        %tmp.15 = newd 0;
+        %tmp.17 = lgetv %responseCallback.2;
+        invoke %tmp.10 %tmp.11(%tmp.13, %tmp.14, %tmp.15, %tmp.17);
+C_Users_tzlin_Documents_MtaWatchApp_source_MtaWatchAppTrainView_mc_71_41_81_2_stop:
+    }
+}
+[ @file = "C:\Users\tzlin\Documents\MtaWatchApp\source\MtaWatchAppTrainView.mc"; @line = 1; ]
+<init> {
+}

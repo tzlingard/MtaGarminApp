@@ -18,7 +18,7 @@ class MtaWatchAppApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        return [ new MtaWatchAppView(), new MtaWatchAppDelegate() ];
+        return [ new MtaWatchAppInitialView(), new MtaWatchAppInitialDelegate() ];
     }
 
 }

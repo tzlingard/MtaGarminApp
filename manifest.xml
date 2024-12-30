@@ -5,7 +5,7 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="a987c1f8-9341-49ce-a13f-f822b92c3cab" type="watch-app" name="@Strings.AppName" entry="MtaWatchAppApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="1.2.0">
+    <iq:application id="a987c1f8-9341-49ce-a13f-f822b92c3cab" type="watch-app" name="@Strings.AppName" entry="MtaWatchAppApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="1.3.0">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
@@ -32,8 +32,6 @@
             Use "Monkey C: Configure Monkey Barrel" from the Visual Studio Code
             command palette to edit the included barrels.
         -->
-        <iq:barrels>
-            <iq:depends name="BufMonkey" version="0.1.0"/>
-        </iq:barrels>
+        <iq:barrels/>
     </iq:application>
 </iq:manifest>
